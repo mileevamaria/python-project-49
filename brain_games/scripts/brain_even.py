@@ -1,32 +1,21 @@
-from brain_games import (
-    GAME_ATTEMPS,
-    ask_question,
-    congrat,
-    get_name,
-    reply_answer,
-    welcome,
-)
-from brain_games.tools import (
-    BRAIN_EVEN_RULE,
-    get_random_number,
-    is_number_even,
-)
+import random
+
+from brain_games import run_game
+
+EVEN_GAME_HINT = 'Answer "yes" if the number is even, otherwise answer "no".'
+
+
+def _generate_number_for_even() -> tuple[str, str]:
+    """
+    Сгенерировать число для проверки чет/нечет и правильный ответ
+    """
+    number = random.randint(1, 99)
+    correct_answer = 'yes' if number % 2 == 0 else 'no'
+    return str(number), correct_answer
 
 
 def main():
-    name = get_name()
-    welcome(name)
-    print(BRAIN_EVEN_RULE)
-    attempt = 0
-    while attempt < GAME_ATTEMPS:
-        number = get_random_number()
-        answer = ask_question(number)
-        correct_answer = is_number_even(number)
-        reply_answer(answer=answer, correct_answer=correct_answer, name=name)
-        if answer != correct_answer:
-            return
-        attempt += 1
-    congrat(name)
+    run_game(hint=EVEN_GAME_HINT, generator=_generate_number_for_even)
 
 
 if __name__ == '__main__':

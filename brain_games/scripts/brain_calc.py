@@ -1,27 +1,35 @@
-from brain_games import (
-    GAME_ATTEMPS,
-    ask_question,
-    congrat,
-    get_name,
-    reply_answer,
-    welcome,
-)
-from brain_games.tools import BRAIN_CALC_RULE, generate_calc_expression
+import random
+
+from brain_games import run_game
+
+CALC_GAME_HINT = 'What is the result of the expression?'
+
+
+def _generate_numbers_for_calc() -> tuple[str, str]:
+    """
+    Сгенерировать выражение для игры калькулятора
+    Возвращает выражение и правильный ответ
+    """
+    list_operators = ['+', '-', '*']
+    param1 = random.randint(1, 50)
+    param2 = random.randint(1, 9)
+    operator = random.choice(list_operators)
+    answer = 0
+    match operator:
+        case '+':
+            answer = param1 + param2
+        case '-':
+            answer = param1 - param2
+        case '*':
+            answer = param1 * param2
+    return f'{param1} {operator} {param2}', str(answer)
 
 
 def main():
-    name = get_name()
-    welcome(name)
-    print(BRAIN_CALC_RULE)
-    attempt = 0
-    while attempt < GAME_ATTEMPS:
-        question, correct_answer = generate_calc_expression()
-        answer = ask_question(question=question)
-        reply_answer(answer=answer, correct_answer=correct_answer, name=name)
-        if answer != correct_answer:
-            return
-        attempt += 1
-    congrat(name)
+    run_game(
+        hint=CALC_GAME_HINT, 
+        generator=_generate_numbers_for_calc,
+    )
 
 
 if __name__ == '__main__':
