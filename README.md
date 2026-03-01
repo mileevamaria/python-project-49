@@ -14,3 +14,6 @@
 
 # Brain game progression
 [![asciicast](https://asciinema.org/a/TXGI3LF1C6qnsodC.svg)](https://asciinema.org/a/TXGI3LF1C6qnsodC)
+
+# Brain game prime
+[![asciicast](https://asciinema.org/a/EWXUbmdlCZ1ywW3m.svg)](https://asciinema.org/a/EWXUbmdlCZ1ywW3m)
