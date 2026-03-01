@@ -15,7 +15,10 @@ def _generate_number_for_even() -> tuple[str, str]:
 
 
 def main():
-    run_game(hint=EVEN_GAME_HINT, generator=_generate_number_for_even)
+    run_game(
+        hint=EVEN_GAME_HINT, 
+        generator=_generate_number_for_even,
+    )
 
 
 if __name__ == '__main__':

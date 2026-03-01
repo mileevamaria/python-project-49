@@ -21,7 +21,10 @@ def _generate_number_for_gcd() -> tuple[str, str]:
 
 
 def main():
-    run_game(hint=EVEN_GAME_HINT, generator=_generate_number_for_gcd)
+    run_game(
+        hint=EVEN_GAME_HINT, 
+        generator=_generate_number_for_gcd,
+    )
 
 
 if __name__ == '__main__':
