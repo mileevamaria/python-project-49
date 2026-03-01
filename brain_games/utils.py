@@ -1,9 +1,10 @@
 import prompt
 
-
+GAME_ATTEMPS = 3
 REPLY_WRONG_ANSWER = (
-    "'{wrong_answer}' is wrong answer ;(. Correct answer was '{right_answer}'."
-    "Let's try again, {name}!"
+    "'{wrong_answer}' is wrong answer ;(. '"
+    "Correct answer was '{correct_answer}'."
+    "\nLet's try again, {name}!"
 )
 REPLY_RIGHT_ANSWER = "Correct!"
 
@@ -34,3 +35,10 @@ def reply_answer(answer, correct_answer, name):
             correct_answer=correct_answer,
             name=name,
         ))
+
+
+def ask_question(question: int | str) -> str:
+    """Спросить пользователя и получить ответ"""
+    question = f'Question: {str(question)}\nYour answer: '
+    answer: str = prompt.string(question)
+    return answer

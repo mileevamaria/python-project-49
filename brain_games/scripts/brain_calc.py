@@ -6,22 +6,17 @@ from brain_games import (
     reply_answer,
     welcome,
 )
-from brain_games.tools import (
-    BRAIN_EVEN_RULE,
-    get_random_number,
-    is_number_even,
-)
+from brain_games.tools import BRAIN_CALC_RULE, generate_calc_expression
 
 
 def main():
     name = get_name()
     welcome(name)
-    print(BRAIN_EVEN_RULE)
+    print(BRAIN_CALC_RULE)
     attempt = 0
     while attempt < GAME_ATTEMPS:
-        number = get_random_number()
-        answer = ask_question(number)
-        correct_answer = is_number_even(number)
+        question, correct_answer = generate_calc_expression()
+        answer = ask_question(question=question)
         reply_answer(answer=answer, correct_answer=correct_answer, name=name)
         if answer != correct_answer:
             return
