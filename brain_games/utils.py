@@ -24,7 +24,7 @@ def congrat(name: str) -> None:
     print(f'Congratulations, {name}!')
 
 
-def reply_answer(answer, correct_answer, name):
+def reply_answer(answer: str, correct_answer: str, name: str) -> None:
     """Выводит сообщение о результате проверки ответа на вопрос"""
     if answer == correct_answer:
         print(REPLY_RIGHT_ANSWER)
@@ -36,8 +36,8 @@ def reply_answer(answer, correct_answer, name):
         ))
 
 
-def ask_question(question: int | str) -> str:
+def ask_question(question: str) -> str:
     """Спросить пользователя и получить ответ"""
-    question = f'Question: {str(question)}\nYour answer: '
+    question = f'Question: {question}\nYour answer: '
     answer: str = prompt.string(question)
     return answer
