@@ -5,4 +5,8 @@ build:
 brain-games:
 	uv run brain-games
 package-install:
-	uv tool install dist/*.whl
+	uv tool install --force dist/*.whl
+lint:
+	uv run ruff check brain_games
+brain-even:
+	uv run brain-even
