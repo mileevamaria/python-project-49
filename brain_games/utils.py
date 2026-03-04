@@ -39,5 +39,5 @@ def reply_answer(answer: str, correct_answer: str, name: str) -> None:
 def ask_question(question: str) -> str:
     """Спросить пользователя и получить ответ"""
     question = f'Question: {question}\nYour answer: '
-    answer: str = prompt.string(question)
+    answer = prompt.string(question)
     return answer
