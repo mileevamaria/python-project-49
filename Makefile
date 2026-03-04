@@ -19,3 +19,7 @@ brain-progression:
 	uv run brain-progression
 brain-prime:
 	uv run brain-prime
+shell-rec:
+	asciinema rec demo.cast
+shell-upload:
+	asciinema upload demo.cast
